@@ -4,55 +4,49 @@ export function Footer() {
   return (
     <footer className="mt-16">
       {/* Image Section */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-96 overflow-hidden">
         <Image
-          src="/placeholder.svg?height=256&width=1200"
-          alt="Tulungrejo Agricultural Landscape"
+          src="/bottom/bottom-2.png"
+          alt="Gedung Balai Desa Tulungrejo"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/20" />
+        {/* <div className="absolute inset-0 bg-black/20" /> */}
       </div>
 
       {/* Footer Content */}
-      <div className="bg-green-800 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Left Column */}
-            <div>
-              <h3 className="text-lg font-bold mb-4">Desa Tulungrejo</h3>
-              <p className="text-green-100 text-sm">
-                Portal informasi digital untuk masyarakat Desa Tulungrejo, menyediakan akses mudah ke berbagai layanan
-                dan informasi penting.
+      <div className="bg-white text-gray-800 py-4 px-[5vw]">
+        <div className="container mx-auto">
+          {/* Main Footer Content */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-8">
+            {/* Left Side - Menu Links */}
+            <div className="flex flex-row space-x-6 font-medium text-sm">
+              <a href="/" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
+                Beranda
+              </a>
+              <a href="/profil" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
+                Profil
+              </a>
+              <a href="/visi-misi" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
+                Visi & Misi
+              </a>
+            </div>
+
+            {/* Right Side - Collaboration Text */}
+            <div className="text-right">
+              <p className="text-gray-800 text-sm">
+                Kolaborasi dengan{" "}
+                <a 
+                  href="https://www.instagram.com/lestaribumiaji/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-800 font-semibold hover:text-blue-800 transition-colors duration-200 underline"
+                >
+                  Lestari Bumiaji
+                </a>
+                {" "}| KKN-PPM UGM 2025
               </p>
             </div>
-
-            {/* Middle Column */}
-            <div>
-              <h3 className="text-lg font-bold mb-4">Kontak</h3>
-              <div className="text-green-100 text-sm space-y-2">
-                <p>📍 Desa Tulungrejo, Kota Batu</p>
-                <p>📞 (0341) 123-4567</p>
-                <p>✉️ info@tulungrejo.desa.id</p>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div>
-              <h3 className="text-lg font-bold mb-4">Jam Pelayanan</h3>
-              <div className="text-green-100 text-sm space-y-2">
-                <p>Senin - Jumat: 08:00 - 16:00</p>
-                <p>Sabtu: 08:00 - 12:00</p>
-                <p>Minggu: Tutup</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="border-t border-green-700 mt-8 pt-6 text-center">
-            <p className="text-green-100 text-sm">
-              © 2025 Desa Tulungrejo. Kolaborasi dengan Lestari Bumiku | KKN-PPM UGM 2025
-            </p>
           </div>
         </div>
       </div>
