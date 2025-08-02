@@ -63,27 +63,15 @@ export function Navbar() {
           <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
 
           {/* Floating Menu */}
-          <div className="absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-green-200 overflow-hidden">
+          <div className="absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-blue-200 overflow-hidden">
             <div className="p-6">
-              <div className="flex items-center space-x-3 pb-4 border-b border-green-200">
-                <div className="relative w-8 h-8">
-                  <Image
-                    src="/placeholder.svg?height=32&width=32"
-                    alt="Logo Desa Tulungrejo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span className="text-lg font-bold text-green-700">TULUNGREJO</span>
-              </div>
-
               <div className="mt-4 space-y-2">
                 {menuItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-4 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50 font-medium rounded-xl transition-colors duration-200"
+                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-xl transition-colors duration-200"
                   >
                     {item.name}
                   </Link>
