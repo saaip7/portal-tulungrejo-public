@@ -1,0 +1,15 @@
+{
+  "visi_desa": {
+    "deskripsi": "Visi merupakan suatu gambaran yang menantang mengenai kondisi pada masa mendatang berdasarkan potensi dan kebutuhan. Perumusan visi pembangunan Desa Tulungrejo dilaksanakan dengan pendekatan partisipatif, melibatkan pihak-pihak yang berkepentingan yaitu Pemerintah Desa, Badan Permusyawaratan Desa, Tokoh Masyarakat, Tokoh Agama, lembaga kemasyarakatan desa dan masyarakat desa pada umumnya. Pertimbangan kondisi eksternal desa seperti satuan kerja wilayah pembangunan di Kecamatan.",
+    "rumusan": "Melayani Masyarakat menuju Kejayaan Desa Tulungrejo"
+  },
+  "misi_desa": {
+    "deskripsi": "Misi merupakan penjabaran konkrit dari visi yang dirumuskan menggunakan pendekatan partisipatif. Rumusan misi Desa Tulungrejo dalam melaksanakan tatanan pemerintahan desa dan pelaksanaan program pembangunan adalah:",
+    "rumusan": [
+      "Menjalankan roda pemerintahan yang jujur, amanah dan transparan",
+      "Meningkatkan kinerja perangkat desa sesuai tugas pokok dan fungsinya",
+      "Meningkatkan potensi desa menuju kejayaan masyarakat",
+      "Menumbuhkembangkan sumber daya manusia di masyarakat menuju kejayaan Desa Tulungrejo"
+    ]
+  }
+}

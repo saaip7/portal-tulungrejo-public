@@ -4,42 +4,19 @@ import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin, Users, Calendar, Building } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { MapPin, Users, Calendar, Download } from "lucide-react"
 import { HeroSlideshow } from "@/components/hero-slideshow"
+import monografiData from "@/data/monografi.json"
 
 export default function ProfilDesa() {
-  const villageOfficials = [
-    {
-      name: "Bapak Suyanto",
-      position: "Kepala Desa",
-      image: "/placeholder.svg?height=120&width=120",
-    },
-    {
-      name: "Ibu Siti Aminah",
-      position: "Sekretaris Desa",
-      image: "/placeholder.svg?height=120&width=120",
-    },
-    {
-      name: "Bapak Ahmad Wijaya",
-      position: "Bendahara Desa",
-      image: "/placeholder.svg?height=120&width=120",
-    },
-    {
-      name: "Bapak Bambang Sutrisno",
-      position: "Kepala Urusan Pemerintahan",
-      image: "/placeholder.svg?height=120&width=120",
-    },
-  ]
-
-  const facilities = [
-    { name: "Balai Desa", icon: Building, description: "Pusat pemerintahan dan pelayanan masyarakat" },
-    { name: "Puskesmas Pembantu", icon: Building, description: "Layanan kesehatan dasar untuk warga" },
-    { name: "SD Negeri Tulungrejo", icon: Building, description: "Pendidikan dasar untuk anak-anak desa" },
-    { name: "Masjid Al-Ikhlas", icon: Building, description: "Tempat ibadah dan kegiatan keagamaan" },
-  ]
+  const handleDownloadProfile = () => {
+    // Link to Google Drive document
+    window.open("https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view", "_blank")
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-amber-50">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -65,82 +42,14 @@ export default function ProfilDesa() {
       />
 
       <main className="container mx-auto px-4 pb-8 max-w-6xl">
-        {/* Overview Section */}
-        <section className="mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="bg-white/80 backdrop-blur-sm border-green-200">
-              <CardHeader>
-                <CardTitle className="text-green-800 flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  Informasi Umum
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h3 className="font-semibold text-gray-800">Lokasi</h3>
-                  <p className="text-gray-600">Kecamatan Bumiaji, Kota Batu, Jawa Timur</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Luas Wilayah</h3>
-                  <p className="text-gray-600">12,5 km²</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Ketinggian</h3>
-                  <p className="text-gray-600">800-1.200 mdpl</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Batas Wilayah</h3>
-                  <ul className="text-gray-600 text-sm space-y-1">
-                    <li>• Utara: Desa Punten</li>
-                    <li>• Selatan: Desa Bumiaji</li>
-                    <li>• Timur: Desa Sumbergondo</li>
-                    <li>• Barat: Desa Pandanrejo</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/80 backdrop-blur-sm border-green-200">
-              <CardHeader>
-                <CardTitle className="text-green-800 flex items-center gap-2">
-                  <Users className="w-5 h-5" />
-                  Demografi
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h3 className="font-semibold text-gray-800">Jumlah Penduduk</h3>
-                  <p className="text-gray-600">3.245 jiwa</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Jumlah KK</h3>
-                  <p className="text-gray-600">892 kepala keluarga</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Kepadatan Penduduk</h3>
-                  <p className="text-gray-600">260 jiwa/km²</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Mata Pencaharian Utama</h3>
-                  <ul className="text-gray-600 text-sm space-y-1">
-                    <li>• Pertanian: 45%</li>
-                    <li>• Pariwisata: 25%</li>
-                    <li>• Perdagangan: 20%</li>
-                    <li>• Lainnya: 10%</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
         {/* History Section */}
         <section className="mb-12">
-          <Card className="bg-white/80 backdrop-blur-sm border-green-200">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Sejarah Desa</h2>
+          <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
             <CardHeader>
-              <CardTitle className="text-green-800 flex items-center gap-2">
+              <CardTitle className="text-blue-800 flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
-                Sejarah Desa
+                Sejarah Desa Tulungrejo
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -164,48 +73,239 @@ export default function ProfilDesa() {
           </Card>
         </section>
 
-        {/* Village Officials */}
+        {/* SOTK Desa */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-green-800 mb-8 text-center">Perangkat Desa</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {villageOfficials.map((official, index) => (
-              <Card key={index} className="bg-white/80 backdrop-blur-sm border-green-200 text-center">
-                <CardContent className="p-6">
-                  <div className="relative w-24 h-24 mx-auto mb-4">
-                    <Image
-                      src={official.image || "/placeholder.svg"}
-                      alt={official.name}
-                      fill
-                      className="object-cover rounded-full"
-                    />
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">SOTK Desa</h2>
+          <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
+            <CardContent className="p-6">
+              <div className="text-center">
+                <p className="text-gray-700 mb-6">Struktur Organisasi dan Tata Kerja Pemerintah Desa Tulungrejo</p>
+                <div className="relative w-full max-w-4xl mx-auto">
+                  <Image
+                    src="/profil/sotk.jpg"
+                    alt="Struktur Organisasi dan Tata Kerja Desa Tulungrejo"
+                    width={1536}
+                    height={1196}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Monografi Section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Monografi Desa</h2>
+
+          {/* Profil Desa & Batas Wilayah */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-800 flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  Profil Wilayah
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-gray-800">Luas Wilayah</h3>
+                  <p className="text-gray-600">
+                    {monografiData.profil_desa.luas_wilayah_km2} km² ({monografiData.profil_desa.luas_wilayah_ha} ha)
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Jumlah Dusun</h3>
+                  <p className="text-gray-600">{monografiData.profil_desa.jumlah_dusun} dusun</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Jumlah RT/RW</h3>
+                  <p className="text-gray-600">
+                    {monografiData.profil_desa.jumlah_rt} RT / {monografiData.profil_desa.jumlah_rw} RW
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Batas Wilayah</h3>
+                  <ul className="text-gray-600 text-sm space-y-1">
+                    <li>• Utara: {monografiData.batas_wilayah.utara}</li>
+                    <li>• Timur: {monografiData.batas_wilayah.timur}</li>
+                    <li>• Selatan: {monografiData.batas_wilayah.selatan}</li>
+                    <li>• Barat: {monografiData.batas_wilayah.barat}</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-800 flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  Demografi
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-gray-800">Total Penduduk</h3>
+                  <p className="text-gray-600">{monografiData.total_penduduk.jumlah.toLocaleString()} jiwa</p>
+                  <p className="text-sm text-gray-500">
+                    Laki-laki: {monografiData.total_penduduk.laki_laki.toLocaleString()} | Perempuan:{" "}
+                    {monografiData.total_penduduk.perempuan.toLocaleString()}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Jumlah KK</h3>
+                  <p className="text-gray-600">
+                    {monografiData.total_penduduk.jumlah_kk.toLocaleString()} kepala keluarga
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Jumlah Rumah</h3>
+                  <p className="text-gray-600">{monografiData.total_penduduk.jumlah_rumah.toLocaleString()} rumah</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Jarak ke Pusat Pemerintahan</h3>
+                  <ul className="text-gray-600 text-sm space-y-1">
+                    <li>• Kec. Bumiaji: {monografiData.jarak_ke_pusat_pemerintahan.kantor_kecamatan_bumiaji_km} km</li>
+                    <li>• Kota Batu: {monografiData.jarak_ke_pusat_pemerintahan.sekretariat_daerah_kota_batu_km} km</li>
+                    <li>• Prov. Jawa Timur: {monografiData.jarak_ke_pusat_pemerintahan.ibu_kota_provinsi_km} km</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Penduduk per Dusun */}
+          <Card className="bg-white/80 backdrop-blur-sm border-blue-200 mb-8">
+            <CardHeader>
+              <CardTitle className="text-blue-800">Jumlah Penduduk per Dusun</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-blue-200">
+                      <th className="text-left py-2 px-3 font-semibold text-gray-800">Dusun</th>
+                      <th className="text-center py-2 px-3 font-semibold text-gray-800">Laki-laki</th>
+                      <th className="text-center py-2 px-3 font-semibold text-gray-800">Perempuan</th>
+                      <th className="text-center py-2 px-3 font-semibold text-gray-800">Total</th>
+                      <th className="text-center py-2 px-3 font-semibold text-gray-800">KK</th>
+                      <th className="text-center py-2 px-3 font-semibold text-gray-800">Rumah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {monografiData.jumlah_penduduk_per_dusun.map((dusun, index) => (
+                      <tr key={index} className="border-b border-gray-100">
+                        <td className="py-2 px-3 font-medium text-gray-800">{dusun.nama_dusun}</td>
+                        <td className="py-2 px-3 text-center text-gray-600">{dusun.laki_laki.toLocaleString()}</td>
+                        <td className="py-2 px-3 text-center text-gray-600">{dusun.perempuan.toLocaleString()}</td>
+                        <td className="py-2 px-3 text-center font-semibold text-gray-800">
+                          {dusun.jumlah.toLocaleString()}
+                        </td>
+                        <td className="py-2 px-3 text-center text-gray-600">{dusun.jumlah_kk.toLocaleString()}</td>
+                        <td className="py-2 px-3 text-center text-gray-600">{dusun.jumlah_rumah.toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Pekerjaan & Pendidikan */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-800">Mata Pencaharian (%)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700">Pertanian</span>
+                    <span className="font-semibold text-green-600">
+                      {monografiData.pekerjaan_masyarakat.pertanian}%
+                    </span>
                   </div>
-                  <h3 className="font-semibold text-gray-800 mb-2">{official.name}</h3>
-                  <p className="text-green-600 text-sm">{official.position}</p>
-                </CardContent>
-              </Card>
-            ))}
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700">Swasta</span>
+                    <span className="font-semibold text-green-600">{monografiData.pekerjaan_masyarakat.swasta}%</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700">PNS/TNI/Polri</span>
+                    <span className="font-semibold text-green-600">
+                      {monografiData.pekerjaan_masyarakat.pns_tni_polri}%
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700">Lainnya</span>
+                    <span className="font-semibold text-green-600">{monografiData.pekerjaan_masyarakat.lainnya}%</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-800">Tingkat Pendidikan</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Belum/Tidak Sekolah</span>
+                    <span className="font-medium">
+                      {monografiData.tingkat_pendidikan.belum_tidak_sekolah.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Belum Tamat SD</span>
+                    <span className="font-medium">
+                      {monografiData.tingkat_pendidikan.belum_tamat_sd.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">SD</span>
+                    <span className="font-medium">{monografiData.tingkat_pendidikan.sd.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">SLTP</span>
+                    <span className="font-medium">{monografiData.tingkat_pendidikan.sltp.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">SLTA</span>
+                    <span className="font-medium">{monografiData.tingkat_pendidikan.slta.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">D1/D2/D3</span>
+                    <span className="font-medium">
+                      {(
+                        monografiData.tingkat_pendidikan.d1 +
+                        monografiData.tingkat_pendidikan.d2 +
+                        monografiData.tingkat_pendidikan.d3
+                      ).toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">S1/S2</span>
+                    <span className="font-medium">
+                      {(monografiData.tingkat_pendidikan.s1 + monografiData.tingkat_pendidikan.s2).toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
-        {/* Facilities */}
+        {/* Download Button */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-green-800 mb-8 text-center">Fasilitas Desa</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {facilities.map((facility, index) => (
-              <Card key={index} className="bg-white/80 backdrop-blur-sm border-green-200">
-                <CardContent className="p-6 flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                      <facility.icon className="w-6 h-6 text-green-600" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">{facility.name}</h3>
-                    <p className="text-gray-600 text-sm">{facility.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center">
+            <Button
+              onClick={handleDownloadProfile}
+              className="bg-blue-800 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Download Profil Desa Tulungrejo Tahun 2025
+            </Button>
+            <p className="text-gray-700 text-sm mt-2">Dokumen lengkap profil desa dalam format PDF</p>
           </div>
         </section>
       </main>

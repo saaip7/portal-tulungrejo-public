@@ -1,0 +1,87 @@
+{
+  "profil_desa": {
+    "luas_wilayah_ha": 807.019,
+    "luas_wilayah_km2": 80.701,
+    "jumlah_dusun": 5,
+    "jumlah_rt": 81,
+    "jumlah_rw": 18
+  },
+  "batas_wilayah": {
+    "utara": "Desa Sumberbrantas",
+    "timur": "Desa Sumbergondo",
+    "selatan": "Desa Punten",
+    "barat": "Wilayah Kecamatan Pujon Kab. Malang"
+  },
+  "jarak_ke_pusat_pemerintahan": {
+    "kantor_kecamatan_bumiaji_km": 1.5,
+    "sekretariat_daerah_kota_batu_km": 6,
+    "ibu_kota_provinsi_km": 133
+  },
+  "jumlah_penduduk_per_dusun": [
+    {
+      "nama_dusun": "Kekep",
+      "laki_laki": 612,
+      "perempuan": 560,
+      "jumlah": 1172,
+      "jumlah_kk": 355,
+      "jumlah_rumah": 280
+    },
+    {
+      "nama_dusun": "Gondang",
+      "laki_laki": 869,
+      "perempuan": 828,
+      "jumlah": 1697,
+      "jumlah_kk": 508,
+      "jumlah_rumah": 432
+    },
+    {
+      "nama_dusun": "Gerdu",
+      "laki_laki": 532,
+      "perempuan": 529,
+      "jumlah": 1061,
+      "jumlah_kk": 332,
+      "jumlah_rumah": 311
+    },
+    {
+      "nama_dusun": "Junggo",
+      "laki_laki": 1510,
+      "perempuan": 1530,
+      "jumlah": 3040,
+      "jumlah_kk": 902,
+      "jumlah_rumah": 820
+    },
+    {
+      "nama_dusun": "Wonorejo",
+      "laki_laki": 1132,
+      "perempuan": 1148,
+      "jumlah": 2280,
+      "jumlah_kk": 735,
+      "jumlah_rumah": 665
+    }
+  ],
+  "total_penduduk": {
+    "laki_laki": 4655,
+    "perempuan": 4595,
+    "jumlah": 9250,
+    "jumlah_kk": 2832,
+    "jumlah_rumah": 2508
+  },
+  "pekerjaan_masyarakat": {
+    "pertanian": 65,
+    "swasta": 20,
+    "pns_tni_polri": 5,
+    "lainnya": 10
+  },
+  "tingkat_pendidikan": {
+    "belum_tidak_sekolah": 640,
+    "belum_tamat_sd": 1910,
+    "sd": 2707,
+    "sltp": 1726,
+    "slta": 1758,
+    "d1": 64,
+    "d2": 36,
+    "d3": 63,
+    "s1": 297,
+    "s2": 17
+  }
+}
