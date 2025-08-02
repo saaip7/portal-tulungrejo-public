@@ -312,25 +312,25 @@ export default function ProfilDesa() {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700">Pertanian</span>
-                    <span className="font-semibold text-green-600">
+                    <span className="font-semibold text-gray-700">
                       {monografiData.pekerjaan_masyarakat.pertanian}%
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700">Swasta</span>
-                    <span className="font-semibold text-green-600">
+                    <span className="font-semibold text-gray-700">
                       {monografiData.pekerjaan_masyarakat.swasta}%
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700">PNS/TNI/Polri</span>
-                    <span className="font-semibold text-green-600">
+                    <span className="font-semibold text-gray-700">
                       {monografiData.pekerjaan_masyarakat.pns_tni_polri}%
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700">Lainnya</span>
-                    <span className="font-semibold text-green-600">
+                    <span className="font-semibold text-gray-700">
                       {monografiData.pekerjaan_masyarakat.lainnya}%
                     </span>
                   </div>
