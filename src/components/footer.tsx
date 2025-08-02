@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export function Footer() {
   return (
@@ -22,15 +23,15 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-8">
             {/* Left Side - Menu Links */}
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6 font-medium text-sm order-2 sm:order-1">
-              <a href="/" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
+              <Link href="/" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
                 Beranda
-              </a>
-              <a href="/profil" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
+              </Link>
+              <Link href="/profil" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
                 Profil
-              </a>
-              <a href="/visi-misi" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
+              </Link>
+              <Link href="/visi-misi" className="text-gray-800 hover:text-blue-800 transition-colors duration-200">
                 Visi & Misi
-              </a>
+              </Link>
             </div>
 
             {/* Right Side - Collaboration Text */}

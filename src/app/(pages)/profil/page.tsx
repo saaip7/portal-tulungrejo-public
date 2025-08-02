@@ -70,8 +70,8 @@ export default function ProfilDesa() {
               <div className="prose prose-green max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Desa Tulungrejo memiliki sejarah panjang yang dimulai pada
-                  abad ke-18. Nama "Tulungrejo" berasal dari bahasa Jawa yang
-                  berarti "menolong untuk mencapai kemakmuran". Desa ini awalnya
+                  abad ke-18. Nama &quot;Tulungrejo&quot; berasal dari bahasa Jawa yang
+                  berarti &quot;menolong untuk mencapai kemakmuran&quot;. Desa ini awalnya
                   merupakan daerah hutan yang kemudian dibuka oleh para
                   pendatang dari Jawa Tengah.
                 </p>

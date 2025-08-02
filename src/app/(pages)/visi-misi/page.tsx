@@ -70,7 +70,7 @@ export default function VisiMisi() {
                 </p>
                 <div className="text-center bg-blue-50 p-6 rounded-xl border-l-4 border-blue-600">
                   <blockquote className="text-xl md:text-2xl font-bold text-blue-800 leading-relaxed italic">
-                    "{visiMisiData.visi_desa.rumusan}"
+                    &quot;{visiMisiData.visi_desa.rumusan}&quot;
                   </blockquote>
                 </div>
               </div>
