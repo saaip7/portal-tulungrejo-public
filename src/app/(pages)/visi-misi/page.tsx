@@ -1,19 +1,22 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Eye, Target, Download } from "lucide-react"
-import { HeroSlideshow } from "@/components/hero-slideshow"
-import visiMisiData from "@/data/visi-misi.json"
+import Image from "next/image";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Eye, Target, Download } from "lucide-react";
+import { HeroSlideshow } from "@/components/hero-slideshow";
+import visiMisiData from "@/data/visi-misi.json";
 
 export default function VisiMisi() {
   const handleDownloadVisiMisi = () => {
     // Link to Google Drive document
-    window.open("https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view", "_blank")
-  }
+    window.open(
+      "https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view",
+      "_blank"
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -23,19 +26,28 @@ export default function VisiMisi() {
       <HeroSlideshow
         slides={[
           {
-            image: "/placeholder.svg?height=240&width=1200&text=Visi+Misi+Desa",
-            title: "Visi & Misi",
-            description: "Arah dan tujuan pembangunan Desa Tulungrejo",
+            image: "/hero/hero1.png",
+            title: "Portal Informasi Desa Tulungrejo",
+            description:
+              "Temukan sosial media, layanan publik, dan informasi darurat desa dalam satu tempat.",
+            buttonText: "Jelajahi Portal",
+            buttonLink: "/",
           },
           {
-            image: "/placeholder.svg?height=240&width=1200&text=Pembangunan+Desa",
-            title: "Pembangunan Berkelanjutan",
-            description: "Membangun desa dengan prinsip keberlanjutan",
+            image: "/hero/hero2-1 crop.jpg",
+            title: "Profil Desa Tulungrejo",
+            description:
+              "Pelajari sejarah, struktur organisasi, dan potensi desa yang kaya akan budaya dan tradisi.",
+            buttonText: "Lihat Profil",
+            buttonLink: "/profil",
           },
           {
-            image: "/placeholder.svg?height=240&width=1200&text=Masa+Depan+Desa",
-            title: "Masa Depan Cerah",
-            description: "Menuju desa mandiri dan sejahtera",
+            image: "/hero/hero 3.png",
+            title: "Visi & Misi Desa",
+            description:
+              "Pahami visi, misi, dan tujuan pembangunan desa untuk masa depan yang berkelanjutan.",
+            buttonText: "Baca Visi Misi",
+            buttonLink: "/visi-misi",
           },
         ]}
         autoPlayInterval={6000}
@@ -53,7 +65,9 @@ export default function VisiMisi() {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                <p className="text-gray-700 leading-relaxed text-justify">{visiMisiData.visi_desa.deskripsi}</p>
+                <p className="text-gray-700 leading-relaxed text-justify">
+                  {visiMisiData.visi_desa.deskripsi}
+                </p>
                 <div className="text-center bg-blue-50 p-6 rounded-xl border-l-4 border-blue-600">
                   <blockquote className="text-xl md:text-2xl font-bold text-blue-800 leading-relaxed italic">
                     "{visiMisiData.visi_desa.rumusan}"
@@ -75,17 +89,24 @@ export default function VisiMisi() {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                <p className="text-gray-700 leading-relaxed text-justify">{visiMisiData.misi_desa.deskripsi}</p>
+                <p className="text-gray-700 leading-relaxed text-justify">
+                  {visiMisiData.misi_desa.deskripsi}
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {visiMisiData.misi_desa.rumusan.map((misi, index) => (
-                    <div key={index} className="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600">
+                    <div
+                      key={index}
+                      className="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600"
+                    >
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0">
                           <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
                             {index + 1}
                           </div>
                         </div>
-                        <p className="text-gray-800 leading-relaxed text-sm">{misi}</p>
+                        <p className="text-gray-800 leading-relaxed text-sm">
+                          {misi}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -97,18 +118,20 @@ export default function VisiMisi() {
 
         {/* Infographic Section */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Infografis Visi Misi</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            Infografis Visi Misi
+          </h2>
           <Card className="bg-white/80 backdrop-blur-sm border-blue-200">
             <CardContent className="p-6">
               <div className="relative w-full max-w-2xl mx-auto">
                 <div className="relative w-full rounded-lg overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200">
                   <Image
-                  src="/profil/visi-misi.jpg"
-                  alt="Infografis Visi Misi Desa Tulungrejo"
-                  layout="responsive"
-                  width={800}
-                  height={600}
-                  className="object-contain"
+                    src="/profil/visi-misi.jpg"
+                    alt="Infografis Visi Misi Desa Tulungrejo"
+                    layout="responsive"
+                    width={800}
+                    height={600}
+                    className="object-contain"
                   />
                 </div>
               </div>
@@ -126,12 +149,14 @@ export default function VisiMisi() {
               <Download className="w-5 h-5 mr-2" />
               Download Profil Desa Tulungrejo Tahun 2025
             </Button>
-            <p className="text-gray-700 text-sm mt-2">Dokumen lengkap profil desa dalam format PDF</p>
+            <p className="text-gray-700 text-sm mt-2">
+              Dokumen lengkap profil desa dalam format PDF
+            </p>
           </div>
         </section>
       </main>
 
       <Footer />
     </div>
-  )
+  );
 }

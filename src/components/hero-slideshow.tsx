@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface Slide {
   image: string
   title: string
   description: string
+  buttonText?: string
+  buttonLink?: string
 }
 
 interface HeroSlideshowProps {
@@ -52,13 +55,34 @@ export function HeroSlideshow({ slides, autoPlayInterval = 5000 }: HeroSlideshow
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-t from-black/80 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-end pr-8 md:pr-16">
               <div className="flex flex-col items-end text-right">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{slide.title}</h1>
-                <div className="flex max-w-lg text-right">
-                  <p className="text-lg md:text-xl text-white/90">{slide.description}</p>
+                <div className="flex max-w-lg text-right mb-6">
+                  <p className="text-md md:text-lg text-white/90">{slide.description}</p>
                 </div>
+                {slide.buttonText && slide.buttonLink && (
+                  <Link 
+                    href={slide.buttonLink}
+                    className="inline-flex items-center px-4 py-2 bg-white text-blue-800 font-medium text-sm rounded-md hover:bg-blue-50 transition-colors duration-300 shadow-md hover:shadow-lg transform"
+                  >
+                    {slide.buttonText}
+                    <svg 
+                      className="ml-1 w-4 h-4" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                      />
+                    </svg>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
