@@ -15,10 +15,10 @@ export default function TulungrejoPortal() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-amber-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
-          <p className="text-green-700">Memuat portal informasi...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-800 mx-auto mb-4"></div>
+          <p className="text-blue-800">Memuat portal informasi...</p>
         </div>
       </div>
     )
@@ -49,7 +49,7 @@ export default function TulungrejoPortal() {
       <HeroSection />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8 max-w-4xl">
+      <main className="container mx-auto px-[10vw] py-8">
         {Object.entries(groupedLinks).map(([category, categoryLinks]) => (
           <LinkSection key={category} category={category} links={categoryLinks} onLinkClick={handleLinkClick} />
         ))}
