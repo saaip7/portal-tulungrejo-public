@@ -2,12 +2,26 @@
 
 import { LinkCard } from "./link-card"
 
+interface Category {
+  _id: string
+  name: string
+  slug: string
+  order: number
+  createdAt: string
+  updatedAt: string
+  __v: number
+}
+
 interface LinkData {
   _id: string
   title: string
   url: string
-  category: string
+  category: Category
   image?: string
+  isActive: boolean
+  order: number
+  createdAt: string
+  __v: number
 }
 
 interface LinkSectionProps {
