@@ -3,7 +3,7 @@ import { HeroSlideshow } from "./hero-slideshow"
 const slides = [
   {
     image: "/hero/hero1.png",
-    title: "Portal Informasi Desa Tulungrejo",
+    title: "Pintu Digital Desa Tulungrejo",
     description: "Temukan sosial media, layanan publik, dan informasi darurat desa dalam satu tempat.",
     buttonText: "Jelajahi Portal",
     buttonLink: "/",

@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Portal Informasi Desa Tulungrejo",
+  title: "Pintu Digital Tulungrejo",
   description: "Temukan berbagai tautan penting dan layanan digital Desa Tulungrejo di sini.",
   keywords: "Desa Tulungrejo, Portal Informasi, Layanan Digital, Sosial Media",
 }
