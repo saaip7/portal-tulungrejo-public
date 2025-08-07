@@ -1,4 +1,5 @@
 import { apiClient } from '@/lib/api'
+import { cache, CACHE_DURATION } from '@/lib/cache'
 
 export interface Category {
   _id: string
@@ -33,26 +34,83 @@ export interface CategoryWithLinks {
 
 export const linksService = {
   async getAllLinks(): Promise<LinkData[]> {
-    return apiClient.get('/api/links')
+    const cacheKey = 'links:all'
+    return cache.getOrFetch(
+      cacheKey,
+      () => apiClient.get('/api/links'),
+      CACHE_DURATION.ONE_DAY
+    )
   },
 
   async getGroupedLinks(): Promise<CategoryWithLinks[]> {
-    return apiClient.get('/api/links/grouped')
+    const cacheKey = 'links:grouped'
+    return cache.getOrFetch(
+      cacheKey,
+      () => apiClient.get('/api/links/grouped'),
+      CACHE_DURATION.ONE_DAY
+    )
   },
 
   async getLinkById(id: string): Promise<LinkData> {
-    return apiClient.get(`/api/links/${id}`)
+    const cacheKey = `links:${id}`
+    return cache.getOrFetch(
+      cacheKey,
+      () => apiClient.get(`/api/links/${id}`),
+      CACHE_DURATION.ONE_DAY
+    )
   },
 
   async createLink(linkData: Omit<LinkData, '_id'>): Promise<LinkData> {
-    return apiClient.post('/api/links', linkData)
+    const result = await apiClient.post('/api/links', linkData)
+    
+    // Invalidate cache after creating new link
+    cache.remove('links:all')
+    cache.remove('links:grouped')
+    
+    return result
   },
 
   async updateLink(id: string, linkData: Partial<LinkData>): Promise<LinkData> {
-    return apiClient.put(`/api/links/${id}`, linkData)
+    const result = await apiClient.put(`/api/links/${id}`, linkData)
+    
+    // Invalidate cache after updating link
+    cache.remove('links:all')
+    cache.remove('links:grouped')
+    cache.remove(`links:${id}`)
+    
+    return result
   },
 
   async deleteLink(id: string): Promise<void> {
-    return apiClient.delete(`/api/links/${id}`)
+    const result = await apiClient.delete(`/api/links/${id}`)
+    
+    // Invalidate cache after deleting link
+    cache.remove('links:all')
+    cache.remove('links:grouped')
+    cache.remove(`links:${id}`)
+    
+    return result
+  },
+
+  // Cache management methods
+  clearCache(): void {
+    cache.remove('links:all')
+    cache.remove('links:grouped')
+  },
+
+  clearAllLinksCache(): void {
+    // Clear all link-related cache entries
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const keys = Object.keys(localStorage)
+      keys.forEach(key => {
+        if (key.startsWith('links:')) {
+          cache.remove(key)
+        }
+      })
+    }
+  },
+
+  isCacheValid(cacheKey: string): boolean {
+    return cache.has(cacheKey)
   },
 }

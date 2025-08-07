@@ -7,10 +7,16 @@ export const useLinks = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const fetchLinks = async () => {
+  const fetchLinks = async (forceRefresh = false) => {
     try {
       setLoading(true)
       setError(null)
+      
+      // Clear cache if force refresh is requested
+      if (forceRefresh) {
+        linksService.clearCache()
+      }
+      
       const data = await linksService.getGroupedLinks()
       
       // Debug log to see the actual response structure
@@ -273,5 +279,8 @@ export const useLinks = () => {
     loading,
     error,
     refetch: fetchLinks,
+    refreshCache: () => fetchLinks(true), // Force refresh by clearing cache
+    clearCache: linksService.clearCache,
+    isCacheValid: () => linksService.isCacheValid('links:grouped'),
   }
 }
