@@ -273,6 +273,25 @@ export const useLinks = () => {
     fetchLinks()
   }, [])
 
+  // Listen for global refresh events so other components using this hook
+  // can re-fetch when another part of the app requests a cache refresh.
+  useEffect(() => {
+    const handler = () => {
+      // Force refresh when an external signal is received
+      fetchLinks(true)
+    }
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('links:refresh', handler)
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('links:refresh', handler)
+      }
+    }
+  }, [])
+
   return {
     links,
     groupedLinks,

@@ -1,7 +1,31 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useLinks } from "@/hooks/useLinks"
+import { useRouter } from 'next/navigation'
+import { RefreshCw } from "lucide-react"
 
 export function Footer() {
+  const { refreshCache, isCacheValid } = useLinks()
+  const router = useRouter()
+
+  const handleForceRefresh = () => {
+    refreshCache()
+    // notify other listeners in the app to force refetch
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('links:refresh'))
+    }
+    // Also ask Next.js to revalidate server components and re-fetch data
+    try {
+      router.refresh()
+    } catch (e) {
+      // fallback: no-op
+    }
+  }
+
+  const cacheStateLabel = isCacheValid() ? "Cached (1 hour)" : "No Cache"
+
   return (
     <footer className="mt-8 sm:mt-12 md:mt-16">
       {/* Image Section */}
@@ -34,8 +58,8 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Right Side - Collaboration Text */}
-            <div className="text-center sm:text-right order-1 sm:order-2">
+            {/* Right Side - Collaboration Text + Cache Control */}
+            <div className="text-center sm:text-right order-1 sm:order-2 flex items-center gap-3">
               <p className="text-gray-800 text-xs sm:text-sm leading-relaxed">
                 Kolaborasi dengan{" "}
                 <a 
@@ -50,6 +74,18 @@ export function Footer() {
                 <span className="hidden sm:inline"> | </span>
                 <span className="sm:inline">KKN-PPM UGM 2025</span>
               </p>
+
+              {/* Cache reset button (small) */}
+              <div className="flex items-center ml-2">
+                <button
+                  onClick={handleForceRefresh}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm"
+                  title={`Force refresh cache (${cacheStateLabel})`}
+                  aria-label="Force refresh cache"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>

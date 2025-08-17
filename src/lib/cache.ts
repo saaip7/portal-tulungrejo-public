@@ -13,11 +13,11 @@
  * 
  * Usage Example:
  * ```typescript
- * // Cache API response for 1 day
+ * // Cache API response for 1 hour
  * const data = await cache.getOrFetch(
  *   'api:users',
  *   () => fetch('/api/users').then(r => r.json()),
- *   CACHE_DURATION.ONE_DAY
+ *   CACHE_DURATION.ONE_HOUR
  * )
  * ```
  */
@@ -31,8 +31,32 @@ export interface CacheItem<T> {
 export class Cache {
   private storage: Storage
   
-  constructor(storage: Storage = typeof window !== 'undefined' ? localStorage : {} as Storage) {
-    this.storage = storage
+  constructor(storage?: Storage) {
+    // Prefer provided storage, then browser localStorage, otherwise use an in-memory fallback
+    if (storage) {
+      this.storage = storage
+    } else if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      this.storage = window.localStorage
+    } else {
+      // Minimal in-memory Storage-like fallback for SSR or non-browser environments
+      const map = new Map<string, string>()
+      this.storage = {
+        getItem(key: string) {
+          return map.has(key) ? map.get(key) as string : null
+        },
+        setItem(key: string, value: string) {
+          map.set(key, String(value))
+        },
+        removeItem(key: string) {
+          map.delete(key)
+        },
+        clear() {
+          map.clear()
+        },
+        key(_index: number) { return null },
+        length: 0,
+      } as unknown as Storage
+    }
   }
 
   /**

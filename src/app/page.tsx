@@ -7,14 +7,12 @@ import { Footer } from "@/components/footer"
 import { useLinks } from "@/hooks/useLinks"
 
 export default function TulungrejoPortal() {
-  const { groupedLinks, loading, error, refreshCache, isCacheValid } = useLinks()
+  const { groupedLinks, loading, error } = useLinks()
 
   const handleLinkClick = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer")
   }
 
-  // Optional: Add cache status indicator for development
-  const showCacheStatus = process.env.NODE_ENV === 'development'
 
   if (loading) {
     return (
@@ -53,20 +51,7 @@ export default function TulungrejoPortal() {
 
       {/* Main Content */}
       <main className="container mx-auto px-[10vw] py-8">
-        {/* Cache Status Indicator (Development Only) */}
-        {showCacheStatus && (
-          <div className="mb-4 p-3 bg-gray-100 rounded-lg text-sm text-gray-600 flex items-center justify-between">
-            <span>
-              Cache Status: {isCacheValid() ? '✅ Cached (1 day)' : '❌ No Cache'}
-            </span>
-            <button 
-              onClick={() => refreshCache()}
-              className="px-3 py-1 bg-blue-500 text-white rounded text-xs hover:bg-blue-600"
-            >
-              Force Refresh
-            </button>
-          </div>
-        )}
+  {/* Cache Status Indicator removed — moved into footer */}
         
         {Object.entries(groupedLinks).map(([category, categoryLinks]) => (
           <LinkSection key={category} category={category} links={categoryLinks} onLinkClick={handleLinkClick} />

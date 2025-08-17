@@ -38,7 +38,7 @@ export const linksService = {
     return cache.getOrFetch(
       cacheKey,
       () => apiClient.get('/api/links'),
-      CACHE_DURATION.ONE_DAY
+      CACHE_DURATION.ONE_HOUR
     )
   },
 
@@ -47,7 +47,7 @@ export const linksService = {
     return cache.getOrFetch(
       cacheKey,
       () => apiClient.get('/api/links/grouped'),
-      CACHE_DURATION.ONE_DAY
+      CACHE_DURATION.ONE_HOUR
     )
   },
 
@@ -56,7 +56,7 @@ export const linksService = {
     return cache.getOrFetch(
       cacheKey,
       () => apiClient.get(`/api/links/${id}`),
-      CACHE_DURATION.ONE_DAY
+      CACHE_DURATION.ONE_HOUR
     )
   },
 
