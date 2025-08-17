@@ -19,7 +19,7 @@ export function Footer() {
     // Also ask Next.js to revalidate server components and re-fetch data
     try {
       router.refresh()
-    } catch (e) {
+    } catch {
       // fallback: no-op
     }
   }

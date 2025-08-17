@@ -53,8 +53,8 @@ export class Cache {
         clear() {
           map.clear()
         },
-        key(_index: number) { return null },
-        length: 0,
+        key() { return null },
+        get length() { return map.size },
       } as unknown as Storage
     }
   }
