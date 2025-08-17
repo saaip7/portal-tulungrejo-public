@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,13 +11,13 @@ import { HeroSlideshow } from "@/components/hero-slideshow";
 import monografiData from "@/data/monografi.json";
 
 export default function ProfilDesa() {
-  const handleDownloadProfile = () => {
-    // Link to Google Drive document
-    window.open(
-      "https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view",
-      "_blank"
-    );
-  };
+  // const handleDownloadProfile = () => {
+  //   // Link to Google Drive document
+  //   window.open(
+  //     "https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view",
+  //     "_blank"
+  //   );
+  // };
 
   return (
     <div className="min-h-screen bg-white">
@@ -69,25 +70,51 @@ export default function ProfilDesa() {
             <CardContent>
               <div className="prose prose-green max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Desa Tulungrejo memiliki sejarah panjang yang dimulai pada
-                  abad ke-18. Nama &quot;Tulungrejo&quot; berasal dari bahasa Jawa yang
-                  berarti &quot;menolong untuk mencapai kemakmuran&quot;. Desa ini awalnya
-                  merupakan daerah hutan yang kemudian dibuka oleh para
-                  pendatang dari Jawa Tengah.
+                  Desa Tulungrejo terletak di lereng utara Kota Batu, Kecamatan
+                  Bumiaji. Luasnya sekitar 807 hektare dan terbagi menjadi lima
+                  dusun: Gondang, Kekep, Gerdu, Junggo, dan Wonorejo. Dengan
+                  jumlah penduduk lebih dari 9.000 jiwa, sebagian besar
+                  masyarakat menggantungkan hidup pada sektor pertanian. Apel,
+                  kentang, wortel, dan tomat menjadi komoditas unggulan serta
+                  identitas desa.
                 </p>
+
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Pada masa kolonial Belanda, wilayah ini dikembangkan sebagai
-                  daerah perkebunan kopi dan teh karena kondisi geografis yang
-                  mendukung. Setelah kemerdekaan Indonesia, Desa Tulungrejo
-                  terus berkembang menjadi daerah wisata alam yang terkenal
-                  dengan pemandangan pegunungan yang indah.
+                  Sejarah Tulungrejo membentang sejak era Hindu-Buddha hingga
+                  masa kemerdekaan. Bukti-bukti historis menunjukkan kawasan ini
+                  sudah penting sejak masa Majapahit. Penyebaran Islam juga
+                  membawa pengaruh budaya melalui tokoh-tokoh seperti Eyang Jugo
+                  dan Mbah Mbatu, yang meninggalkan warisan tradisi yang masih
+                  hidup hingga kini.
                 </p>
+
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Pada masa kolonial Belanda, Tulungrejo berkembang sebagai
+                  pusat perkebunan, diperkenalkannya apel menjadi tonggak besar
+                  bagi desa ini. Masa penjajahan Jepang dan Agresi Militer
+                  Belanda membawa penderitaan, namun juga memperlihatkan
+                  semangat perlawanan rakyat.
+                </p>
+
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Pasca kemerdekaan, pertanian apel terus berkembang pesat
+                  hingga menjadi ikon Kota Batu. Kini, selain apel, masyarakat
+                  juga mengembangkan hortikultura, bunga hias, serta wisata agro
+                  dan ekowisata untuk menjawab tantangan zaman.
+                </p>
+
                 <p className="text-gray-700 leading-relaxed">
-                  Saat ini, Desa Tulungrejo dikenal sebagai salah satu destinasi
-                  agrowisata terbaik di Kota Batu, dengan berbagai atraksi
-                  wisata seperti kebun apel, wisata petik buah, dan pemandangan
-                  alam yang menakjubkan.
+                  Sebagai desa multikultural, Tulungrejo memiliki Pura Giri
+                  Arjuno (didirikan 2005) yang menjadi simbol toleransi dan
+                  pusat spiritual umat Hindu di lereng Gunung Arjuno.
                 </p>
+                <div className="mt-6 text-center">
+                  <a href="/sejarah" aria-label="Pelajari sejarah lebih lanjut">
+                    <Button className="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                      Pelajari sejarah lebih lanjut
+                    </Button>
+                  </a>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -399,21 +426,21 @@ export default function ProfilDesa() {
               </CardContent>
             </Card>
           </div>
+          <div className="text-center text-sm text-gray-600 mt-6">
+            Data Monografi 2024
+          </div>
         </section>
 
         {/* Download Button */}
         <section className="mb-12">
           <div className="text-center">
-            <Button
-              onClick={handleDownloadProfile}
-              className="bg-blue-800 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download Profil Desa Tulungrejo Tahun 2025
-            </Button>
-            <p className="text-gray-700 text-sm mt-2">
-              Dokumen lengkap profil desa dalam format PDF
-            </p>
+            <Link href="/documents/updated">
+              <Button className="bg-blue-800 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Download className="w-5 h-5 mr-2" />
+                Download Profil Desa Tulungrejo Tahun 2025
+              </Button>
+            </Link>
+            <p className="text-gray-700 text-sm mt-2">Dokumen lengkap profil desa dalam format PDF</p>
           </div>
         </section>
       </main>

@@ -89,9 +89,9 @@ export default function SejarahDesa() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleDownloadHistory = () => {
-    window.open("/documents/sejarah-desa-tulungrejo-2025.pdf", "_blank")
-  }
+//   const handleDownloadHistory = () => {
+//     window.open("/documents/sejarah-desa-tulungrejo-2025.pdf", "_blank")
+//   }
 
   return (
     <div className="min-h-screen bg-white">
@@ -175,7 +175,7 @@ export default function SejarahDesa() {
                 <p className="text-gray-700 leading-relaxed text-justify mb-4">
                   Pada masa kolonial Belanda, Tulungrejo berkembang menjadi kawasan perkebunan penting. Komoditas
                   seperti kopi, kina, dan apel diperkenalkan oleh pengusaha Eropa, dan lahan-lahan produktif dibagi
-                  dalam sistem blok atau "bon". Bangunan kolonial seperti Fruphus (yang kini menjadi Kantor Desa) dan
+                  dalam sistem blok atau &quot;bon&quot;. Bangunan kolonial seperti Fruphus (yang kini menjadi Kantor Desa) dan
                   Hotel Selecta dibangun pada masa ini, serta sistem sosial mulai mengalami pergeseran dari gotong
                   royong ke arah struktur kerja kapitalistik.
                 </p>

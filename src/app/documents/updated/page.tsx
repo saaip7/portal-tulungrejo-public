@@ -22,7 +22,7 @@ export default function DocumentsUpdated() {
             <CardContent>
               <div className="space-y-6 text-gray-700">
                 <p>
-                  File "Profil Desa Tulungrejo Tahun 2025" baru saja diperbarui
+                  File &quot;Profil Desa Tulungrejo Tahun 2025&quot; baru saja diperbarui
                   oleh tim administrasi. Saat ini file lama telah dihapus sementara
                   dan dokumen baru sedang diproses untuk publikasi.
                 </p>

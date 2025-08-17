@@ -7,16 +7,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Target, Download } from "lucide-react";
 import { HeroSlideshow } from "@/components/hero-slideshow";
+import Link from "next/link";
 import visiMisiData from "@/data/visi-misi.json";
 
 export default function VisiMisi() {
-  const handleDownloadVisiMisi = () => {
-    // Link to Google Drive document
-    window.open(
-      "https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view",
-      "_blank"
-    );
-  };
+  // const handleDownloadVisiMisi = () => {
+  //   // Link to Google Drive document
+  //   window.open(
+  //     "https://drive.google.com/file/d/1vI3MxzWzjHQaquqUiycCvsz8FOyclPDc/view",
+  //     "_blank"
+  //   );
+  // };
 
   return (
     <div className="min-h-screen bg-white">
@@ -142,16 +143,13 @@ export default function VisiMisi() {
         {/* Download Button */}
         <section className="mb-12">
           <div className="text-center">
-            <Button
-              onClick={handleDownloadVisiMisi}
-              className="bg-blue-800 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download Profil Desa Tulungrejo Tahun 2025
-            </Button>
-            <p className="text-gray-700 text-sm mt-2">
-              Dokumen lengkap profil desa dalam format PDF
-            </p>
+            <Link href="/documents/updated">
+              <Button className="bg-blue-800 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Download className="w-5 h-5 mr-2" />
+                Download Profil Desa Tulungrejo Tahun 2025
+              </Button>
+            </Link>
+            <p className="text-gray-700 text-sm mt-2">Dokumen lengkap profil desa dalam format PDF</p>
           </div>
         </section>
       </main>
